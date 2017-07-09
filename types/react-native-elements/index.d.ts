@@ -43,44 +43,60 @@ export interface AvatarProperties
 
 export class Avatar extends React.Component<AvatarProperties> {}
 
-export interface TextProps {
+/**
+ * Button component
+ *
+ * @see https://react-native-training.github.io/react-native-elements/API/buttons/
+ */
+export class Button extends React.Component<ButtonProperties, any> {}
+
+export interface BadgeProperties {
     /**
-     * font size 40
+     * Text value to be displayed by badge
+     *
+     * @default null
      */
-    h1?: boolean;
+    value?: string | number;
 
     /**
-     * font size 34
+     * Style for the outer badge component
      */
-    h2?: boolean;
+    containerStyle?: ViewStyle;
 
     /**
-     * font size 28
+     * Style for the outer-most badge component
      */
-    h3?: boolean;
+    wrapperStyle?: ViewStyle;
 
     /**
-     * font size 22
+     * Style for the text in the badge
      */
-    h4?: boolean;
+    textStyle?: TextStyle;
 
     /**
-     * font family name
+     * Override the default badge contents, mutually exclusive with 'value' property
      */
-    fontFamily?: string;
+    children?: JSX.Element;
 
     /**
-     * Additional styling for Text
+     * Custom component to replace the badge outer component
+     *
+     * @default View, if onPress then TouchableOpacity
      */
-    style?: TextStyle;
+    component?: React.ComponentClass;
+
+    /**
+     * Function called when pressed on the badge
+     */
+    onPress?(): void;
 }
 
 /**
- * HTML Style Headings
+ * Badge component
  *
- * @desc https://react-native-training.github.io/react-native-elements/API/HTML_style_headings/
+ * @see https://react-native-training.github.io/react-native-elements/API/badge/
  */
-export class Text extends React.Component<TextProps, any> {}
+export class Badge extends React.Component<BadgeProperties, any> {}
 
 export interface ButtonIcon {
     name?: string;
@@ -243,57 +259,41 @@ export interface ButtonProperties {
     containerViewStyle?: ViewStyle;
 }
 
-/**
- * Button component
- *
- * @see https://react-native-training.github.io/react-native-elements/API/buttons/
- */
-export class Button extends React.Component<ButtonProperties, any> {}
-
-export interface BadgeProperties {
+export interface TextProps {
     /**
-     * Text value to be displayed by badge
-     *
-     * @default null
+     * font size 40
      */
-    value?: string | number;
+    h1?: boolean;
 
     /**
-     * Style for the outer badge component
+     * font size 34
      */
-    containerStyle?: ViewStyle;
+    h2?: boolean;
 
     /**
-     * Style for the outer-most badge component
+     * font size 28
      */
-    wrapperStyle?: ViewStyle;
+    h3?: boolean;
 
     /**
-     * Style for the text in the badge
+     * font size 22
      */
-    textStyle?: TextStyle;
+    h4?: boolean;
 
     /**
-     * Override the default badge contents, mutually exclusive with 'value' property
+     * font family name
      */
-    children?: JSX.Element;
+    fontFamily?: string;
 
     /**
-     * Custom component to replace the badge outer component
-     *
-     * @default View, if onPress then TouchableOpacity
+     * Additional styling for Text
      */
-    component?: React.ComponentClass;
-
-    /**
-     * Function called when pressed on the badge
-     */
-    onPress?(): void;
+    style?: TextStyle;
 }
 
 /**
- * Badge component
+ * HTML Style Headings
  *
- * @see https://react-native-training.github.io/react-native-elements/API/badge/
+ * @desc https://react-native-training.github.io/react-native-elements/API/HTML_style_headings/
  */
-export class Badge extends React.Component<BadgeProperties, any> {}
+export class Text extends React.Component<TextProps, any> {}

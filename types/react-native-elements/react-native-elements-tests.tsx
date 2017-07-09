@@ -53,19 +53,6 @@ class AvatarTest extends React.Component {
   }
 }
 
-class TextTest extends React.Component<any, any> {
-  render() {
-    return (
-      <View>
-        <Text h1>Heading 1</Text>
-        <Text h2>Heading 2</Text>
-        <Text h3>Heading 3</Text>
-        <Text h4>Heading 4</Text>
-      </View>
-    );
-  }
-}
-
 class BadgeTest extends React.Component<any, any> {
   render() {
     return (
@@ -126,6 +113,19 @@ class ButtonTest extends React.Component<any, any> {
           title="OCTICON"
           onPress={() => this.handleButtonPress()}
         />
+      </View>
+    );
+  }
+}
+
+class TextTest extends React.Component<any, any> {
+  render() {
+    return (
+      <View>
+        <Text h1>Heading 1</Text>
+        <Text h2>Heading 2</Text>
+        <Text h3>Heading 3</Text>
+        <Text h4>Heading 4</Text>
       </View>
     );
   }
