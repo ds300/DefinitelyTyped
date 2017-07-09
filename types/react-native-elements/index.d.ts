@@ -4,8 +4,44 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.3
 
-import * as React from 'react';
-import { ViewStyle, TextStyle } from 'react-native';
+import * as React from "react";
+import { ViewStyle, TextStyle } from "react-native";
+import * as RN from "react-native";
+
+type Component<T = any> = React.ComponentClass<T> | React.StatelessComponent<T>;
+
+export interface IconDescriptor {
+    name: string;
+    type?: string;
+    size?: number;
+    color?: string;
+}
+
+export interface AvatarProperties
+    extends RN.ViewProperties,
+        RN.TouchableOpacityProperties {
+    component?: Component;
+    width?: number;
+    height?: number;
+    onPress?(): void;
+    onLongPress?(): void;
+    containerStyle?: ViewStyle;
+    source?: RN.ImageProperties["source"];
+    avatarStyle?: RN.ImageStyle;
+    rounded?: boolean;
+    title?: string;
+    titleStyle?: RN.TextStyle;
+    overlayContainerStyle?: RN.ViewStyle;
+    activeOpacity?: number;
+    icon?: IconDescriptor;
+    iconStyle?: RN.TextStyle;
+    small?: boolean;
+    medium?: boolean;
+    large?: boolean;
+    xlarge?: boolean;
+}
+
+export class Avatar extends React.Component<AvatarProperties> {}
 
 export interface TextProps {
     /**
@@ -50,7 +86,17 @@ export interface ButtonIcon {
     name?: string;
     color?: string;
     size?: number;
-    type?: 'material' | 'material-community' | 'simple-line-icon' | 'zocial' | 'font-awesome' | 'octicon' | 'ionicon' | 'foundation' | 'evilicon' | 'entypo';
+    type?:
+        | "material"
+        | "material-community"
+        | "simple-line-icon"
+        | "zocial"
+        | "font-awesome"
+        | "octicon"
+        | "ionicon"
+        | "foundation"
+        | "evilicon"
+        | "entypo";
     buttonStyle?: TextStyle;
 }
 
