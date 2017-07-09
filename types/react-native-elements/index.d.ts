@@ -20,35 +20,65 @@ export interface IconDescriptor {
 export interface AvatarProperties
     extends RN.ViewProperties,
         RN.TouchableOpacityProperties {
+    /**
+     * component for enclosing element (eg: TouchableHighlight, View, etc)
+     * @default View when no press handlers
+     * @default TouchableOpacity when press handlers provided
+     */
     component?: Component;
+    /**
+     * @default 34
+     */
     width?: number;
+    /**
+     * @default 34
+     */
     height?: number;
     onPress?(): void;
     onLongPress?(): void;
     containerStyle?: ViewStyle;
     source?: RN.ImageProperties["source"];
     avatarStyle?: RN.ImageStyle;
+    /**
+     * @default false
+     */
     rounded?: boolean;
     title?: string;
     titleStyle?: RN.TextStyle;
     overlayContainerStyle?: RN.ViewStyle;
+    /**
+     * opacity when pressed
+     */
     activeOpacity?: number;
+    /**
+     * @default { name: "user", size: width / 2, color: "white", type: "material" }
+     */
     icon?: IconDescriptor;
     iconStyle?: RN.TextStyle;
+    /**
+     * @default false
+     */
     small?: boolean;
+    /**
+     * @default false
+     */
     medium?: boolean;
+    /**
+     * @default false
+     */
     large?: boolean;
+    /**
+     * @default false
+     */
     xlarge?: boolean;
 }
 
-export class Avatar extends React.Component<AvatarProperties> {}
-
 /**
- * Button component
- *
- * @see https://react-native-training.github.io/react-native-elements/API/buttons/
+ * Avatar component
+ * 
+ * @see https://react-native-training.github.io/react-native-elements/API/avatar/
  */
-export class Button extends React.Component<ButtonProperties, any> {}
+export class Avatar extends React.Component<AvatarProperties> {}
 
 export interface BadgeProperties {
     /**
@@ -258,6 +288,13 @@ export interface ButtonProperties {
      */
     containerViewStyle?: ViewStyle;
 }
+
+/**
+ * Button component
+ *
+ * @see https://react-native-training.github.io/react-native-elements/API/buttons/
+ */
+export class Button extends React.Component<ButtonProperties, any> {}
 
 export interface TextProps {
     /**
